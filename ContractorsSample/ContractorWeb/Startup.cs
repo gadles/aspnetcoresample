@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using ContractorCore.DBContext;
+using ContractorCore.Repositories.Implementation;
+using ContractorCore.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,7 +22,19 @@ namespace ContractorWeb
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var st = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<ContractorsContext>(op => op.UseSqlServer(st, b => b.MigrationsAssembly("ContractorCore")));
+
             services.AddMvc();
+            services.AddAutoMapper();
+
+            RegisterCustomApplicationServices(services);
+        }
+
+
+        private void RegisterCustomApplicationServices(IServiceCollection services)
+        {
+            services.AddScoped<IContractorRepository, ContractorRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
