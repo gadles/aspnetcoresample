@@ -3,6 +3,7 @@ using ContractorCore.DBModels;
 using ContractorCore.Services;
 using ContractorWeb.Models.Contractors;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 
 namespace ContractorWeb.Controllers
@@ -39,6 +40,7 @@ namespace ContractorWeb.Controllers
             {
                 //Aktualny użytkownik 
                 contractor.CreatedBy = 1;
+                contractor.CreatedAt = DateTime.Now;
                 if (oContractor.SaveContractorFromViewModel<mContractor>(contractorConsumer, mapper, contractor))
                 {
                     return RedirectToAction(nameof(Index));
@@ -65,6 +67,7 @@ namespace ContractorWeb.Controllers
             {
                 //Aktualny użytkownik
                 contractor.ModifiedBy = 1;
+                contractor.ModifiedAt = DateTime.Now;
                 if (oContractor.SaveContractorFromViewModel<mContractor>(contractorConsumer, mapper, contractor))
                 {
                     return RedirectToAction(nameof(Index));

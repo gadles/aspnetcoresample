@@ -2,11 +2,56 @@
 @{
     ViewData["Title"] = "Index";
 }
+
+@section Scripts{
+    <environment include="Development">
+        <script src="~/lib/data-tables/datatables.js"></script>
+        <script src="~/lib/data-tables/DataTables-1.10.16/js/jquery.dataTables.js"></script>
+        <script src="~/lib/data-tables/DataTables-1.10.16/js/dataTables.jqueryui.js"></script>
+        <script src="~/lib/data-tables/DataTables-1.10.16/js/jquery.tablesorter.js"></script>
+        <script src="~/lib/data-tables/DataTables-1.10.16/js/dataTables.bootstrap.js"></script>
+    </environment>
+
+    <environment include="Production">
+        <script src="~/lib/data-tables/datatables.min.js"></script>
+        <script src="~/lib/data-tables/DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="~/lib/data-tables/DataTables-1.10.16/js/dataTables.jqueryui.min.js"></script>
+        <script src="~/lib/data-tables/DataTables-1.10.16/js/jquery.tablesorter.min.js"></script>
+        <script src="~/lib/data-tables/DataTables-1.10.16/js/dataTables.bootstrap.min.js"></script>
+    </environment>
+
+    <script>
+        $(function () {
+            $('#dataTable').dataTable({
+                "oLanguage": {
+                    "sLengthMenu": "Show _MENU_ rows on page",
+                    "sZeroRecords": "Zero records found",
+                    "sInfo": "Showing _START_ to _END_ from _TOTAL_ all rows",
+                    "sInfoEmpty": "Not found any records",
+                    "sInfoFiltered": "(filtered from _MAX_ all rows)",
+                    "sSearch": "Search:"
+                }
+            });
+        });
+    </script>
+}
+
+@section Styles{
+    <environment include="Development">
+        <link href="~/lib/data-tables/DataTables-1.10.16/css/dataTables.bootstrap.css" rel="stylesheet" />
+        <link href="~/lib/data-tables/datatables.css" rel="stylesheet" />
+    </environment>
+    <environment include="Production">
+        <link href="~/lib/data-tables/DataTables-1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+        <link href="~/lib/data-tables/datatables.min.css" rel="stylesheet" />
+    </environment>
+}
+
 <h2>Index</h2>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table id="dataTable">
     <thead>
         <tr>
             <th>
@@ -59,9 +104,9 @@
                     @Html.DisplayFor(modelItem => item.IsNaturalPerson)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Edit", "Edit", "Contractor", new { id = item.Id }) |
+                    @*@Html.ActionLink("Details", "Details", new { id = item.Id }) |*@
+                    @Html.ActionLink("Delete", "Delete", "Contractor", new { id = item.Id })
                 </td>
             </tr>
         }

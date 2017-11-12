@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ContractorCore\ContractorCore.csproj" />
+    <ProjectReference Include="..\ContractorWeb\ContractorWeb.csproj" />
   </ItemGroup>
 
 </Project>

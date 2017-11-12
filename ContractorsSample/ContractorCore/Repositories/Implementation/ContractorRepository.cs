@@ -32,6 +32,16 @@ namespace ContractorCore.Repositories.Implementation
                 }
                 else
                 {
+                    if (entity.Address != null)
+                    {
+                        entity.Address.CreatedAt = entity.CreatedAt;
+                        entity.Address.CreatedBy = entity.CreatedBy;
+                    }
+                    if (entity.BankAccount != null)
+                    {
+                        entity.BankAccount.CreatedAt = entity.CreatedAt;
+                        entity.BankAccount.CreatedBy = entity.CreatedBy;
+                    }
                     contractorContext.Contractors.Add(entity);
                 }
                 return true;
@@ -89,6 +99,18 @@ namespace ContractorCore.Repositories.Implementation
         {
             try
             {
+                if (entity.Address != null)
+                {
+                    entity.Address.ModifiedAt = entity.ModifiedAt;
+                    entity.Address.ModifiedBy = entity.ModifiedBy;
+                    contractorContext.Entry(entity.Address).State = EntityState.Modified;
+                }
+                if (entity.BankAccount != null)
+                {
+                    entity.BankAccount.ModifiedAt = entity.ModifiedAt;
+                    entity.BankAccount.ModifiedBy = entity.ModifiedBy;
+                    contractorContext.Entry(entity.BankAccount).State = EntityState.Modified;
+                }
                 contractorContext.Entry(entity).State = EntityState.Modified;
                 return true;
             }

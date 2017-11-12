@@ -9,11 +9,11 @@ namespace ContractorWeb.ApiControllers
 {
     [Produces("application/json")]
     [Route("api/Contractor")]
-    public class ContractorController : Controller
+    public class ApiContractorController : Controller
     {
         private readonly IContractorRepository contractorRepository;
 
-        public ContractorController(IContractorRepository repository)
+        public ApiContractorController(IContractorRepository repository)
         {
             contractorRepository = repository;
         }
@@ -69,13 +69,15 @@ namespace ContractorWeb.ApiControllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete]
         [Validation]
-        public IActionResult Delete(int id)
+        public IActionResult Delete([FromBody]oContractor value)
         {
             try
             {
-                contractorRepository.Delete(id);
+                if (value == null)
+                    return new BadRequestObjectResult(value);
+                contractorRepository.Delete(value.Id);
                 contractorRepository.Save();
                 return new OkResult();
             }

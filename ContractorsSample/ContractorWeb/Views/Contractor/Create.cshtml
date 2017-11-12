@@ -6,52 +6,159 @@
 <h4>Contractor</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <form asp-action="Create">
+        <div class="col-md-6">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="IsNaturalPerson" /> @Html.DisplayNameFor(model => model.IsNaturalPerson)
-                    </label>
+            <div class="box box-info">
+
+                <div class="box-header with-border">
+                    <h3 class="box-title">Main Information</h3>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SecondName" class="control-label"></label>
+                    <input asp-for="SecondName" class="form-control" />
+                    <span asp-validation-for="SecondName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CompanyName" class="control-label"></label>
+                    <input asp-for="CompanyName" class="form-control" />
+                    <span asp-validation-for="CompanyName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NIP" class="control-label"></label>
+                    <input asp-for="NIP" class="form-control" />
+                    <span asp-validation-for="NIP" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NIPEU" class="control-label"></label>
+                    <input asp-for="NIPEU" class="form-control" />
+                    <span asp-validation-for="NIPEU" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Pesel" class="control-label"></label>
+                    <input asp-for="Pesel" class="form-control" />
+                    <span asp-validation-for="Pesel" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="IsNaturalPerson" /> @Html.DisplayNameFor(model => model.IsNaturalPerson)
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="box box-info">
+
+                <div class="box-header with-border">
+                    <h3 class="box-title">Bank Account</h3>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="BankAccount.BankName" class="control-label"></label>
+                    <input asp-for="BankAccount.BankName" class="form-control" />
+                    <span asp-validation-for="BankAccount.BankName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BankAccount.BankSwift" class="control-label"></label>
+                    <input asp-for="BankAccount.BankSwift" class="form-control" />
+                    <span asp-validation-for="BankAccount.BankSwift" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BankAccount.BankNumber" class="control-label"></label>
+                    <input asp-for="BankAccount.BankNumber" class="form-control" />
+                    <span asp-validation-for="BankAccount.BankNumber" class="text-danger"></span>
                 </div>
             </div>
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SecondName" class="control-label"></label>
-                <input asp-for="SecondName" class="form-control" />
-                <span asp-validation-for="SecondName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CompanyName" class="control-label"></label>
-                <input asp-for="CompanyName" class="form-control" />
-                <span asp-validation-for="CompanyName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NIP" class="control-label"></label>
-                <input asp-for="NIP" class="form-control" />
-                <span asp-validation-for="NIP" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NIPEU" class="control-label"></label>
-                <input asp-for="NIPEU" class="form-control" />
-                <span asp-validation-for="NIPEU" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Pesel" class="control-label"></label>
-                <input asp-for="Pesel" class="form-control" />
-                <span asp-validation-for="Pesel" class="text-danger"></span>
-            </div>
 
+        </div>
+        <div class="col-md-6">
+            <div class="box box-info">
+
+                <div class="box-header with-border">
+                    <h3 class="box-title">Contractor Address</h3>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Address.City" class="control-label"></label>
+                    <input asp-for="Address.City" class="form-control" />
+                    <span asp-validation-for="Address.City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address.PostCode" class="control-label"></label>
+                    <input asp-for="Address.PostCode" class="form-control" />
+                    <span asp-validation-for="Address.PostCode" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address.PostOffice" class="control-label"></label>
+                    <input asp-for="Address.PostOffice" class="form-control" />
+                    <span asp-validation-for="Address.PostOffice" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address.Street" class="control-label"></label>
+                    <input asp-for="Address.Street" class="form-control" />
+                    <span asp-validation-for="Address.Street" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address.HouseNumber" class="control-label"></label>
+                    <input asp-for="Address.HouseNumber" class="form-control" />
+                    <span asp-validation-for="Address.HouseNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address.ApartamentNumber" class="control-label"></label>
+                    <input asp-for="Address.ApartamentNumber" class="form-control" />
+                    <span asp-validation-for="Address.ApartamentNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address.Commune" class="control-label"></label>
+                    <input asp-for="Address.Commune" class="form-control" />
+                    <span asp-validation-for="Address.Commune" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address.District" class="control-label"></label>
+                    <input asp-for="Address.District" class="form-control" />
+                    <span asp-validation-for="Address.District" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address.Province" class="control-label"></label>
+                    <input asp-for="Address.Province" class="form-control" />
+                    <span asp-validation-for="Address.Province" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address.Country" class="control-label"></label>
+                    <input asp-for="Address.Country" class="form-control" />
+                    <span asp-validation-for="Address.Country" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address.Email" class="control-label"></label>
+                    <input asp-for="Address.Email" class="form-control" />
+                    <span asp-validation-for="Address.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address.PhoneNumber" class="control-label"></label>
+                    <input asp-for="Address.PhoneNumber" class="form-control" />
+                    <span asp-validation-for="Address.PhoneNumber" class="text-danger"></span>
+                </div><div class="form-group">
+                    <label asp-for="Address.WWW" class="control-label"></label>
+                    <input asp-for="Address.WWW" class="form-control" />
+                    <span asp-validation-for="Address.WWW" cla class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
-        </form>
-    </div>
+
+        </div>
+    </form>
 </div>
 <div>
     <a asp-action="Index">Back to List</a>
