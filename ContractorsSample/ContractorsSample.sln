@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContractorWeb", "Contractor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContractorCore", "ContractorCore\ContractorCore.csproj", "{53961A0A-37A5-449A-B8A0-ACC6EA1455EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContractorTest", "ContractorTest\ContractorTest.csproj", "{0EBCBEAC-F0B9-40D7-B819-8A923E05EC88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContractorTest", "ContractorTest\ContractorTest.csproj", "{0EBCBEAC-F0B9-40D7-B819-8A923E05EC88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

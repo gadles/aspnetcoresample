@@ -1,5 +1,6 @@
 ﻿using ContractorCore.DBContext;
 using ContractorCore.DBModels;
+using ContractorCore.Helpers;
 using ContractorCore.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -54,7 +55,7 @@ namespace ContractorCore.Repositories.Implementation
             }
             catch (Exception ex)
             {
-                //logowanie błędów
+                LogInfo.LogMessage(enumLogInfoType.Error, ex);
                 return false;
             }
         }
@@ -93,6 +94,7 @@ namespace ContractorCore.Repositories.Implementation
             }
             catch (Exception ex)
             {
+                LogInfo.LogMessage(enumLogInfoType.Error, ex);
                 return false;
             }
         }

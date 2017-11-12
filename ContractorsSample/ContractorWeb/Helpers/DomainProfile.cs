@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using ContractorCore.DBModels;
+using ContractorWeb.Models.Contractors;
 
 namespace ContractorWeb.Helpers
 {
@@ -6,7 +8,12 @@ namespace ContractorWeb.Helpers
     {
         public DomainProfile()
         {
-            // CreateMap<oContractor, mApplicationUser>();
+            CreateMap<oContractor, mContractor>();
+            CreateMap<oContractorAddress, mContractorAddress>();
+            CreateMap<oContractorBankAccount, mContractorBankAccount>();
+            CreateMap<mContractor, oContractor>();
+            CreateMap<mContractorAddress, oContractorAddress>();
+            CreateMap<mContractorBankAccount, oContractorBankAccount>();
         }
     }
 }
