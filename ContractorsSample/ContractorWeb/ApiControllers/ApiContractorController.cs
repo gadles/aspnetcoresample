@@ -13,6 +13,7 @@ namespace ContractorWeb.ApiControllers
     {
         private readonly IContractorRepository contractorRepository;
 
+
         public ApiContractorController(IContractorRepository repository)
         {
             contractorRepository = repository;
